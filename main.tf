@@ -19,7 +19,7 @@ provider "aws" {
 resource "aws_security_group" "docker_sg" {
   name_prefix = "docker_sg"
   description = "Security group for Docker containers"
-  vpc_id      = var.vpc_id
+  vpc_id      = vpc-031457f77271f33b5
 
   egress {
     from_port        = 0
