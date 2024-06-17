@@ -13,7 +13,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "eu-central-1"
+  region = "us-east-1a"
 }
 
 resource "aws_security_group" "docker_sg" {
