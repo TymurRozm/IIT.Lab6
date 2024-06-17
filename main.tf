@@ -52,7 +52,7 @@ resource "aws_security_group" "docker_sg" {
 }
 
 resource "aws_instance" "docker_instance" {
-  ami                    = "ami-0eb01a520e67f7f20"
+  ami                    = "ami-08a0d1e16fc3f61ea"
   instance_type          = "t3.micro"
   key_name               = "keyforlab4"
   vpc_security_group_ids = [aws_security_group.docker_sg.id]
