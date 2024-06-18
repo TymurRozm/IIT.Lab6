@@ -44,8 +44,8 @@ resource "aws_security_group" "docker_sg" {
   }
 
   ingress {
-    from_port   = 2375
-    to_port     = 2375
+    from_port   = 3323
+    to_port     = 3323
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -63,7 +63,7 @@ resource "aws_instance" "docker_instance" {
     sudo apt-get install -y nginx
     sudo systemctl start nginx
     sudo systemctl enable nginx
-    echo "<h3>BrigadaPRS</h3><h3>Terraform1</h3>" > /var/www/html/index.html
+    echo "<h3>Brigada:</h3><hr><h3>Rozmetov Tymur<br>Parshin Mark<br>Sergiichuk Olexandr</h3>" > /var/www/html/index.html
   EOF
 
   tags = {
