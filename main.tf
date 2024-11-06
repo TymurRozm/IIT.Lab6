@@ -52,22 +52,22 @@ resource "aws_security_group" "docker_sg" {
 }
 
 resource "aws_instance" "docker_instance" {
-  ami                    = "ami-08a0d1e16fc3f61ea"
+  ami                    = "ami-08a0d1e16fc3f61ea" # перевірте, що цей AMI — Amazon Linux
   instance_type          = "t3.micro"
   key_name               = "keyforlab4"
   vpc_security_group_ids = [aws_security_group.docker_sg.id]
 
   user_data = <<-EOF
     #!/bin/bash
-    sudo apt-get update -y
-    sleep 30   # даємо час для завершення оновлення
-    sudo apt-get install -y nginx
+    sudo yum update -y
+    sudo amazon-linux-extras install -y nginx1 # Встановлення nginx через amazon-linux-extras
     sudo systemctl start nginx
     sudo systemctl enable nginx
-    echo "<h3>Brigada:</h3><hr><h3>Rozmetov Tymur 3<br>Parshin Mark<br>Sergiichuk Olexandr</h3>" | sudo tee /var/www/html/index.html
+    echo "<h3>Brigada:</h3><hr><h3>Rozmetov Tymur 3<br>Parshin Mark<br>Sergiichuk Olexandr</h3>" | sudo tee /usr/share/nginx/html/index.html
   EOF
 
   tags = {
     Name = "Docker Instance"
   }
 }
+
