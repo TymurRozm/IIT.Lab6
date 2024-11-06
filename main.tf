@@ -60,11 +60,12 @@ resource "aws_instance" "docker_instance" {
   user_data = <<-EOF
     #!/bin/bash
     sudo yum update -y
-    sudo amazon-linux-extras install -y nginx1 # Встановлення nginx через amazon-linux-extras
+    sudo yum install -y nginx
     sudo systemctl start nginx
     sudo systemctl enable nginx
     echo "<h3>Brigada:</h3><hr><h3>Rozmetov Tymur 3<br>Parshin Mark<br>Sergiichuk Olexandr</h3>" | sudo tee /usr/share/nginx/html/index.html
   EOF
+
 
   tags = {
     Name = "Docker Instance"
