@@ -63,7 +63,7 @@ resource "aws_instance" "docker_instance" {
     sudo yum install -y nginx
     sudo systemctl start nginx
     sudo systemctl enable nginx
-    echo "<h3>Brigada:</h3><hr><h3>Rozmetov Tymur 3<br>Parshin Mark<br>Sergiichuk Olexandr</h3>" | sudo tee /usr/share/nginx/html/index.html
+    echo "<h3>Brigada:</h3><hr><h3>Rozmetov Tymur 3<br>Parshin Mark 6<br>Sergiichuk Olexandr</h3>" | sudo tee /usr/share/nginx/html/index.html
   EOF
 
 
